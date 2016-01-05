@@ -1,0 +1,149 @@
+// -----------------------------------------------------------------------------
+// This file contains all application-wide Sass variables.
+// -----------------------------------------------------------------------------
+
+// layout
+$max-width          : 1019px !default;
+$splash-width       : 933px !default;
+$visualWidth        : 992px;
+$pageWidth          : 951px;
+$challengesWidth    : 934px;
+$thanksWidth        : 696px;
+$challengesformWidth: 459px;
+$headerHeight       : 115px;
+$colPadding         : 6px;
+$articleMarginBottom: 12px;
+$articleTextHeight  : 130px;
+
+
+
+
+
+
+
+/* Colors
+---------------------------------------------------------------------------------------------------- */
+$colors: (
+  black       : #000000,
+  blackLight  : #222221, 
+  pink        : #f5e9e9,
+  white       : #fff,
+  grayDark    : #a7a49e,
+  gray        : #cecdc9,
+  disqusBg    : #d6d5d2,
+  galleryBg   : #ebebe9,
+  brown       : #5c564b,
+  green       : #7fb541,
+  army        : #8a7e35,
+  orange      : #ff9b00,
+  blue        : #00589b,
+  purple      : #7d275a,
+  red         : #c8102e,
+  buttonBorder: #adaaa5,
+  gold        : #fff620,
+  orangeDark  : #ff5500,
+  blueLight   : #00c2ff,
+  
+  
+  gray-light  : #ebebe9,
+  gray-dark   : #b2b5b6,
+
+);
+
+
+
+@each $color-name, $color-code in $colors
+{
+    .color-#{$color-name}
+    {
+        color: $color-code;
+    }
+}
+
+
+/* Font Sizes
+---------------------------------------------------------------------------------------------------- */
+$fontSizes: (
+    headlineBig: 32px,
+    headline: 20px,
+    primary: 20px,
+    standard: 14px,
+    small: 10px,
+
+);
+
+/* Line heights
+---------------------------------------------------------------------------------------------------- */
+$lineSpaces: (
+    headlineBig: 40px, 
+    headline: 24px,
+    primary: 20px,
+    standard: 20px,
+    small: 12px,
+);
+
+
+
+/* Base font icon size
+---------------------------------------------------------------------------------------------------- */
+$fontSizeIcon: 38px;
+.fs-26:before { font-size: 26px !important;}
+.fs-30:before { font-size: 30px !important;}
+
+
+
+/// Relative or absolute URL where all assets are served from
+/// @type String
+/// @example scss - When using a CDN
+///   $base-url: 'http://cdn.example.com/assets/';
+$base-url: '/assets/' !default;
+
+
+
+/* Restaurants Invitations
+---------------------------------------------------------------------------------------------------- */
+$restaurant-invitations: (
+
+  'nuova'        : '#c8102e',
+  'eska'         : '#de453b',
+  'lokal'        : '#442a11',
+  'savoy'        : '#6c1d45',
+  'brasileiro1'  : '#50b400',
+  'brasileiro2'  : '#0033a0',
+  'cestr'        : '#004b87',
+  'nasemaso'     : '#24135f',
+  'ladegustation': '#000000',
+  'pastacaffe'   : '#000000',
+
+); 
+
+
+
+
+
+%B56 {font-family: "Brown-Pro-Bold"; font-size: 56px; line-height: 64px;
+      
+      @media screen and (max-width: 767px)
+      {
+          font-size: 40px; line-height: 48px;
+      }
+
+
+
+}
+%B40 {font-family: "Brown-Pro-Light"; font-size: 40px; line-height: 48px;
+
+
+      @media screen and (max-width: 767px)
+      {
+          font-size: 30px; line-height: 38px;
+      }
+
+
+
+}
+%B28 {font-family: "Brown-Pro-Bold"; font-size: 28px; line-height: 36px;}
+%B20-l {font-family: "Brown-Pro-Light"; font-size: 20px; line-height: 24px;}
+%B20-b {font-family: "Brown-Pro-Bold"; font-size: 20px; line-height: 24px;}
+%H19 {font-family: "Helvetica"; font-size: 19px; line-height: 24px;}
+%H14 {font-family: "Helvetica"; font-size: 14px; line-height: 18px;}

@@ -1,0 +1,55 @@
+// Encoding may be important in some occasions
+@charset 'UTF-8';
+
+// framework by Chris Eppstein
+@import 'compass';
+
+// 0. Config variables - information about project 
+@import 
+  'config';
+
+// 1. Configuration and helpers
+@import
+  'utils/variables',
+  'utils/functions',
+  'utils/mixins';
+
+// 2. Vendors
+@import
+  'vendor/normalize',
+  'vendor/bp5';
+
+// 3. Base stuff
+@import
+  'base/base',
+  'base/fonts',
+  'base/typography',
+  'base/helpers',
+  'base/shortcuts-helpers',
+  'base/responsive';
+
+// 4. Layout-related sections
+@import
+  'layout/grid',
+  'layout/header',
+  'layout/footer';
+
+// 5. Components
+@import
+  'components/animations',
+  'components/buttons';
+
+// 6. Page-specific styles
+@import
+  'pages/home';
+
+// 7. Themes
+@import
+  'themes/default';
+
+// 8. Last save via shame file
+@import 
+  'utils/shame';
+
+
+

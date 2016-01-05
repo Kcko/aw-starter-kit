@@ -1,0 +1,252 @@
+// -----------------------------------------------------------------------------
+// This file contains all application-wide Sass mixins.
+// -----------------------------------------------------------------------------
+
+@mixin respond($minWidth: 0, $maxWidth: 0) {
+    @if $minWidth and $maxWidth
+    {
+        @media screen and (min-width: $minWidth) and (max-width: $maxWidth) { @content; }
+    }
+    @else if $minWidth
+    {
+        @media screen and (min-width: $minWidth) { @content; }
+    }
+    @else if $maxWidth
+    {
+        @media screen and (max-width: $maxWidth) { @content; }
+    }
+    @else
+    {
+        @warn "error - undefined params";
+    }
+}
+
+
+@mixin clear() {
+  &:before, &:after {
+    content: "\0020";
+    display: block;
+    height: 0;
+    overflow: hidden;
+  }
+  &:after {
+    clear: both;
+  }
+}
+
+
+
+@mixin rgba($color, $value) {
+  background-color: $color;
+  background-color: rgba($color, $value);
+}
+
+
+
+
+
+$placeholders: '-webkit-input-placeholder',
+               '-moz-placeholder',
+               '-ms-input-placeholder';
+
+@mixin placeholder {
+  @each $placeholder in $placeholders {
+    @if $placeholder == "-webkit-input-placeholder" {
+      &::#{$placeholder} {
+        @content;
+      }
+    }
+    @else if $placeholder == "-moz-placeholder" {
+      // FF 18-
+      &:#{$placeholder} {
+        @content;
+      }
+
+      // FF 19+
+      &::#{$placeholder} {
+        @content;
+      }
+    }
+    @else {
+      &:#{$placeholder} {
+        @content;
+      }
+    }
+  }
+}
+
+
+
+@mixin imageElement($image)
+{
+    @include imageDimension($image);
+    background: image-url($image);
+}
+
+@mixin imageDimension($image)
+{
+    width: image-width($image);
+    height: image-height($image);
+}
+
+
+
+@mixin resetMP() 
+{
+  margin: 0;
+  padding: 0;
+}
+
+
+@mixin resetList() 
+{
+    @include resetMP;
+    list-style: none;
+}
+
+
+
+/* MIXINS - fonts helpers
+---------------------------------------------------------------------------------------------------- */
+@mixin font($sizeValue: 16, $lineHeight: inherit, $fontFamily: "Apercu")
+{
+
+    font-size: $sizeValue;
+    line-height: $lineHeight;
+
+
+   @if ($fontFamily == 'Brown Bold')
+    {
+        font-family: "Brown-Pro-Bold";
+    }    
+
+    @else if ($fontFamily == 'Brown Light')
+    {
+        font-family: "Brown-Pro-Light";
+    }
+
+    @else
+    {
+      font-family: $fontFamily;
+    }
+
+}
+
+
+
+@mixin fontStandard()
+{
+    //@include font(font(standard), lineSpace(standard), unquote("Arial, Helvetica"));
+    @include font(14px, 18px, "Helvetica");
+}
+
+
+
+@mixin fontSize($sizeValue: 16) 
+{
+  font-size: ($sizeValue * 1) + px;
+  font-size: ($sizeValue / 10) + rem;
+}
+
+
+
+@mixin triangle ($size, $color, $direction) {
+  height: 0;
+  width: 0;
+
+  @if ($direction == up) or ($direction == down) or ($direction == right) or ($direction == left) {
+    border-color: transparent;
+    border-style: solid;
+    border-width: $size / 2;
+
+    @if $direction == up {
+      border-bottom-color: $color;
+
+    } @else if $direction == right {
+      border-left-color: $color;
+
+    } @else if $direction == down {
+      border-top-color: $color;
+
+    } @else if $direction == left {
+      border-right-color: $color;
+    }
+  }
+
+  @else if ($direction == up-right) or ($direction == up-left) {
+    border-top: $size solid $color;
+
+    @if $direction == up-right {
+      border-left: $size solid transparent;
+
+    } @else if $direction == up-left {
+      border-right: $size solid transparent;
+    }
+  }
+
+  @else if ($direction == down-right) or ($direction == down-left) {
+    border-bottom: $size solid $color;
+
+    @if $direction == down-right {
+      border-left: $size solid transparent;
+
+    } @else if $direction == down-left {
+      border-right: $size solid transparent;
+    }
+  }
+}
+
+
+
+
+/// Event wrapper
+/// @author Harry Roberts
+/// @param {Bool} $self [false] - Whether or not to include current selector
+/// @link https://twitter.com/csswizardry/status/478938530342006784 Original tweet from Harry Roberts
+@mixin on-event($self: false) {
+  @if $self {
+    &,
+    &:hover,
+    &:active,
+    &:focus {
+      @content;
+    }
+  } @else {
+    &:hover,
+    &:active,
+    &:focus {
+      @content;
+    }
+  }
+}
+
+
+
+
+
+@mixin fontResponsive($tag)
+{ 
+    @extend %#{$tag};
+    
+
+  // %B56 {font-family: "Brown-Pro-Bold"; font-size: 56px; line-height: 64px;}
+  // %B40 {font-family: "Brown-Pro-Light"; font-size: 40px; line-height: 48px;}
+  // %B28 {font-family: "Brown-Pro-Bold"; font-size: 28px; line-height: 36px;}
+  // %B20-l {font-family: "Brown-Pro-Light"; font-size: 20px; line-height: 24px;}
+  // %B20-b {font-family: "Brown-Pro-Bold"; font-size: 20px; line-height: 24px;}
+  // %H19 {font-family: "Helvetica"; font-size: 19px; line-height: 24px;}
+  // %H14 {font-family: "Helvetica"; font-size: 14px; line-height: 18px;}
+
+    // pak tu muze byt zmenseni fontu na BP
+    // 
+    // 
+    
+}
+
+
+
+@mixin responsiveGutter($padd: 20px)
+{
+    padding-left: $padd;
+    padding-right: $padd;
+}

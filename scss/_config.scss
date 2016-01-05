@@ -1,0 +1,20 @@
+$config: (
+	projectName: "PROJECT NAME",
+ 	authorName: "AUTHOR NAME",
+ 	authorEmail: "@",
+ 	company: "ANDWEB s.r.o.",
+ 	curDate: #{current-date()},
+ 	curTime: #{current-time()}
+
+);
+
+
+
+/*! ----------------------------------------------------------------------------------------------------
+
+  * project       : #{map-get($config, projectName)}
+  * author        : #{map-get($config, authorName)} <#{map-get($config, authorEmail)}>
+  * company       : #{map-get($config, company)}
+  * last modified : #{map-get($config, curDate)} #{map-get($config, curTime)}
+
+---------------------------------------------------------------------------------------------------- */

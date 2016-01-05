@@ -1,0 +1,34 @@
+{
+  "name": "aw-starter-kit",
+  "version": "0.9.0",
+  "description": "Andweb starter kick pack",
+  "main": "Gruntfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Kcko/aw-starter-kit.git"
+  },
+  "keywords": [
+    "andweb",
+    "starter"
+  ],
+  "author": "Kcko",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Kcko/aw-starter-kit/issues"
+  },
+  "homepage": "https://github.com/Kcko/aw-starter-kit",
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-bower-concat": "^0.6.0",
+    "grunt-contrib-clean": "^0.7.0",
+    "grunt-contrib-concat": "^0.5.1",
+    "grunt-contrib-copy": "^0.8.2",
+    "grunt-contrib-cssmin": "^0.14.0",
+    "grunt-contrib-uglify": "^0.11.0",
+    "load-grunt-tasks": "^3.4.0",
+    "time-grunt": "^1.3.0"
+  }
+}
